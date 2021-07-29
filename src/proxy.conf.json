@@ -1,0 +1,9 @@
+{
+  "/api": {
+    "target": "ws://localhost:8999",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {"^/api" : ""}
+    }
+}
