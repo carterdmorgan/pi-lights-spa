@@ -1,6 +1,3 @@
-<!-- <button (click)="red()">Red</button>
-<button (click)="green()">Green</button>
-<button (click)="blue()">Blue</button> -->
 <input
   class="color-square"
   (colorPickerChange)="onColorPickerChanged($event)"
@@ -10,6 +7,5 @@
 <button (click)="stopRainbow()">Stop Rainbow</button>
 <input type="number" [(ngModel)]="rainbowInterval">
 <button (click)="clear()">Clear</button>
-<!-- <button (click)="submit()">Submit</button> -->
 
 <router-outlet></router-outlet>

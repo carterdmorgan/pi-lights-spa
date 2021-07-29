@@ -7,28 +7,16 @@ import { EMPTY, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  private socket$: WebSocketSubject<any>;
-  private messagesSubject$ = new Subject();
-  public messages$ = this.messagesSubject$.pipe(switchAll(), catchError(e => { throw e }));
+  socket$: WebSocketSubject<any>;
 
   public connect(): void {
     if (!this.socket$ || this.socket$.closed) {
-      console.log('connecting')
       this.socket$ = this.getNewWebSocket();
-      this.socket$.subscribe(res => {
-        console.log(res);
-      })
-      // const messages = this.socket$.pipe(
-      //   tap({
-      //     error: error => console.log(error),
-      //   }), catchError(_ => EMPTY));
-      // this.messagesSubject$.next(messages);
     }
   }
 
   private getNewWebSocket() {
-    console.log('getting new socket');
-    return webSocket('ws://192.168.0.14:8999');
+    return webSocket('ws://192.168.0.7:8999'); // Replace this with some kind of process variable
   }
 
   sendMessage(msg: any) {
