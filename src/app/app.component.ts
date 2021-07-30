@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { DataService } from './core/data.service';
+import { DrawingService } from './core/drawing.service';
 
 @Component({
   selector: 'app-root',
@@ -24,13 +24,17 @@ export class AppComponent {
   rainbowInterval = 1000;
 
   constructor(
-    private http: HttpClient,
-    private dataService: DataService
+    private dataService: DataService,
+    private drawingService: DrawingService
   ) {
     this.dataService.connect();
     this.dataService.socket$.subscribe(res => {
       console.log(res);
     })
+    console.log(this.drawingService.drawB({
+      x: 0,
+      y: 4
+    }));
   }
 
   onColorPickerChanged(hex) {

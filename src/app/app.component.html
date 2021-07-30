@@ -3,6 +3,7 @@
   (colorPickerChange)="onColorPickerChanged($event)"
   [(colorPicker)]="color"
   [style.background]="color"/>
+<br>
 <button (click)="flashRainbow()">Flash Rainbow</button>
 <button (click)="stopRainbow()">Stop Rainbow</button>
 <input type="number" [(ngModel)]="rainbowInterval">
